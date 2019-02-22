@@ -12,17 +12,35 @@
      <script type="text/babel">
 
        class Statement extends React.Component {
+         constructor(props) {
+           super(props);
+           this.state = {
+             name: "Chase"
+           }
+         }
          render() {
            return (
            <div>
+             <p>Hello, my name is {this.state.name}</p>
              <p>It is a good day</p>
+             <p>I have {this.props.numberOfToes} toes</p>
+             <p>Gender: {this.props.gender}</p>
            </div>
            );
          }
        }
 
+       const info = {
+         numberOfToes: 10,
+       }
+
+       Statement.defaultProps = {
+         gender: "male"
+       }
+
        ReactDOM.render(
-          <Statement />, document.getElementById('statementapp')
+         <Statement
+          numberOfToes={info.numberOfToes}/>,document.getElementById('statementapp')
        );
 
     </script>
